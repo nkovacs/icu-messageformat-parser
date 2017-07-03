@@ -16,7 +16,7 @@
   "homepage": "https://messageformat.github.io/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/messageformat/parser.git"
+    "url": "https://github.com/nkovacs/icu-messageformat-parser.git"
   },
   "main": "parser.js",
   "files": [

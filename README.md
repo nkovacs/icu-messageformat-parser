@@ -1,4 +1,4 @@
-# messageformat-parser  <a href="http://travis-ci.org/nkovacs/icu-messageformat-parser"><img align="right" alt="Build Status" src="https://secure.travis-ci.org/nkovacs/icu-messageformat-parser.png"></a>
+# icu-messageformat-parser  <a href="http://travis-ci.org/nkovacs/icu-messageformat-parser"><img align="right" alt="Build Status" src="https://secure.travis-ci.org/nkovacs/icu-messageformat-parser.png"></a>
 
 A [PEG.js] parser for [ICU MessageFormat] strings.
 Outputs an AST defined by [parser.pegjs].
@@ -53,7 +53,7 @@ npm install icu-messageformat-parser
 #### Usage
 
 ```js
-> var parse = require('messageformat-parser').parse;
+> var parse = require('icu-messageformat-parser').parse;
 
 > parse('So {wow}.')
 [ 'So ', { type: 'argument', arg: 'wow' }, '.' ]
