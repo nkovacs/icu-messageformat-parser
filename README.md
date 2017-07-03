@@ -1,6 +1,6 @@
-# messageformat-parser  <a href="http://travis-ci.org/messageformat/parser"><img align="right" alt="Build Status" src="https://secure.travis-ci.org/messageformat/parser.png"></a>
+# messageformat-parser  <a href="http://travis-ci.org/nkovacs/icu-messageformat-parser"><img align="right" alt="Build Status" src="https://secure.travis-ci.org/nkovacs/icu-messageformat-parser.png"></a>
 
-A [PEG.js] parser for [ICU MessageFormat] strings – part of [messageformat.js].
+A [PEG.js] parser for [ICU MessageFormat] strings.
 Outputs an AST defined by [parser.pegjs].
 
 The generated parser function takes two parameters, first the string to be
@@ -21,7 +21,7 @@ an empty array.
 #### Installation
 
 ```sh
-npm install messageformat-parser
+npm install icu-messageformat-parser
 ```
 
 
