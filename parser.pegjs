@@ -51,7 +51,7 @@ function = '{' _ arg:id _ ',' _ key:(m:id { if (options.strictNumberSign) { inPl
     };
   }
 
-id = $([0-9a-zA-Z$_][^ \t\n\r,.+={}]*)
+id = $([0-9a-zA-Z$_][^ \f\n\r\t\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff,.+={}]*)
 
 paramDefault = str:paramcharsDefault+ { return str.join(''); }
 
@@ -75,7 +75,7 @@ functionParams
 
 functionParamsStrict = _ ',' p:paramStrict { return p; }
 
-functionParamsDefault = _ ',' _ p:paramDefault _ { return p.replace(/^[ \t\n\r]*|[ \t\n\r]*$/g, ''); }
+functionParamsDefault = _ ',' _ p:paramDefault _ { return p.trim(); }
 
 doubleapos = "''" { return "'"; }
 
@@ -123,4 +123,4 @@ digits = $([0-9]+)
 
 hexDigit = [0-9a-fA-F]
 
-_ = $([ \t\n\r]*)
+_ = $([ \f\n\r\t\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]*)
