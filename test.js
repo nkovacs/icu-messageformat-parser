@@ -1,6 +1,7 @@
 var expect = require('expect.js');
 var fs = require('fs');
 var peg = require('pegjs');
+var testchars = require('./testchars.json');
 
 var parse = null;
 
@@ -474,6 +475,23 @@ describe("Errors", function() {
 
   it("should allow characters in variables that are valid ICU identifiers", function() {
     expect(function(){ parse('{ű\u3000á}'); }).to.not.throwError();
+  });
+
+  it("should allow the same characters as ICU", function() {
+    this.timeout(0);
+    for (char in testchars) {
+      console.log(char.charCodeAt(0));
+      if (testchars[char]["result"]) {
+        expect(function(){ parse('{'+char+char+'}'); }).to.not.throwError();
+      } else {
+        expect(function(){ parse('{'+char+'}'); }).to.throwError();
+        if (!testchars[char]["isWhitespace"]) {
+          expect(function(){ parse('{a'+char+'}'); }).to.throwError();
+        } else {
+          expect(function(){ parse('{a'+char+'}'); }).to.not.throwError();
+        }
+      }
+    }
   });
 
   it("should allow positional variables", function() {
